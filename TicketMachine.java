@@ -84,8 +84,9 @@ public class TicketMachine
         }
         else 
         {
+            int amounLeftToplay = price - balance;
             System.out.println("You must insert at least: " +
-                               (price - balance) + " more cents.");
+                               (amounLeftToplay) + " more cents.");
                     
         }
     }
@@ -113,7 +114,8 @@ public class TicketMachine
     }
     
     /**
-     * Ejer 1
+     * Metodo que nos da las monedas que habia
+     * en la maquina y nos pone el valor a 0.
      */
     public int empyMachine()
     {
