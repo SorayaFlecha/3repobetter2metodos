@@ -111,4 +111,17 @@ public class TicketMachine
         amountLeftToPlay = price - balance;
         return amountLeftToPlay;
     }
+    
+    /**
+     * Ejer 1
+     */
+    public int empyMachine()
+    {
+        int machineTotalMoney;
+        machineTotalMoney = total;
+        total = 0;
+        return machineTotalMoney;
+    }
+    
+    
 }
