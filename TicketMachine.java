@@ -46,7 +46,7 @@ public class TicketMachine
             System.out.println();
 
             // Update the total collected with the price.
-            total =  price + total;
+            total =  (price - ((price*10)/100)) + total;
             // Reduce the balance by the prince.
             balance = balance - (price - ((price*10)/100));
         }
