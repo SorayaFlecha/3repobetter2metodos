@@ -17,6 +17,8 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    // Descuento.
+    private int descuento;
 
     /**
      * Create a machine that issues tickets of the given price.
@@ -27,7 +29,47 @@ public class TicketMachine
         balance = 0;
         total = 0;
     }
+    
+    /**
+     * Metodo que calcula el precio del billete descontado un 10%.
+     */
+    public int getDescuento()
+    {
+        descuento = (price*10)/100;
+        return descuento;
+    }
+    
+    /**
+     * Metodo que imprime un billete con un 10% de descuento.
+     */
+    public void getPrinTiketDiscount()
+    {
+        if(balance >= price - descuento)
+        {
+            // Simulate the printing of a ticket.
+            System.out.println("##################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket");
+            System.out.println("10% de descuento = " + descuento + "cents.");
+            System.out.println("# " + price + - + descuento+" cents.");
+            System.out.println("##################");
+            System.out.println();
 
+            // Update the total collected with the price.
+            total =  (price - descuento) + total;
+            // Reduce the balance by the prince.
+            balance = balance - (price - descuento);
+        }
+        else 
+        {
+            int amounLeftToplay = (price - descuento) - balance;
+            System.out.println("You must insert at least: " +
+                               (amounLeftToplay) + " more cents.");
+                    
+        }
+    }
+    
+    
     /**
      * @Return The price of a ticket.
      */
