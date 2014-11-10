@@ -18,25 +18,31 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     
+    private int descuento;
+    
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine(int cost, int porcenDiscount)
     {
         price = cost;
+        descuento = (price - (price * porcenDiscount) / 100);
         balance = 0;
         total = 0;
     }
+  
     
     /**
      * Metodo que imprime un billete con un 10% de descuento.
      */
     public void getPrinTiketDiscount()
     {
-        if(balance >= price - (price*10)/100)
+        
+        if(balance >= price - descuento)
+        
         {
-            int newPrice = price - (price*10)/100;
+            int newPrice = price - descuento;
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
@@ -46,13 +52,13 @@ public class TicketMachine
             System.out.println();
 
             // Update the total collected with the price.
-            total =  (price - ((price*10)/100)) + total;
+            total =  (price - descuento) + total;
             // Reduce the balance by the prince.
-            balance = balance - (price - ((price*10)/100));
+            balance = balance - (price - descuento);
         }
         else 
         {
-            int amounLeftToplay = (price - ((price*10)/100)) - balance;
+            int amounLeftToplay = (price - descuento) - balance;
             System.out.println("You must insert at least: " +
                                (amounLeftToplay) + " more cents.");
                     
@@ -134,9 +140,11 @@ public class TicketMachine
         balance = 0;
         return amountToRefund;
     }
+   
     
     /**
-     * Metodo de prueba
+     *Metodo que nos dice el dinero que nos falta 
+     * para imprimir un tiket con descuento.
      */
     public int getDineroFaltante()
     {
