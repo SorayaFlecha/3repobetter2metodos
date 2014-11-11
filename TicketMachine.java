@@ -20,14 +20,17 @@ public class TicketMachine
     
     private int descuento;
     
+    private boolean makinaDescuento;
+    
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost, int porcenDiscount)
+    public TicketMachine(int cost, int porcenDiscount, boolean makiBilleDescu)
     {
         price = cost;
         descuento = (price - (price * porcenDiscount) / 100);
+        makinaDescuento = makiBilleDescu;
         balance = 0;
         total = 0;
     }
@@ -38,7 +41,8 @@ public class TicketMachine
      */
     public void getPrinTiketDiscount()
     {
-        
+        if (makinaDescuento == true)
+        {
         if(balance >= price - descuento)
         
         {
@@ -63,6 +67,11 @@ public class TicketMachine
                                (amounLeftToplay) + " more cents.");
                     
         }
+    }
+    else
+    {
+      System.out.println("Esta maquina no puede imprimir tikets con descuento");  
+    }
     }
     
     
