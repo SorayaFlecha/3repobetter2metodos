@@ -17,20 +17,21 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-    
+    //Atributo que nos aplica un descuento a la hora de imprimir un billete.
     private int descuento;
-    
+    //Atributo que nos proporciona informacion para aceder a 
+    //una maquina que venda tokets con decurnto o no.
     private boolean makinaDescuento;
     
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost, int porcenDiscount, boolean makiBilleDescu)
+    public TicketMachine(boolean machineNoPrinTiketDiscount, int cost, int porcenDiscount)
     {
+        makinaDescuento = machineNoPrinTiketDiscount;
         price = cost;
         descuento = (price - (price * porcenDiscount) / 100);
-        makinaDescuento = makiBilleDescu;
         balance = 0;
         total = 0;
     }
